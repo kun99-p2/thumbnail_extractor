@@ -37,7 +37,7 @@ def extract_thumbnail(data):
             with tempfile.NamedTemporaryFile(delete=False, mode='wb', suffix='.jpg') as temp_tb:
                 imageio.imwrite(temp_tb.name, thumbnail)
                 try:
-                    s3.upload_file(temp_tb.name, bucket, data['to']+".jpg", ExtraArgs={'ACL': 'public-read', 'ContentType':'image/jpg', 'Metadata': metadata})
+                    s3.upload_file(temp_tb.name, bucket, "thumbnail/"+data['user']+"/"+data['title']+".jpg", ExtraArgs={'ACL': 'public-read', 'ContentType':'image/jpg', 'Metadata': metadata})
                 except Exception as e:
                     return e
     except Exception as e:
