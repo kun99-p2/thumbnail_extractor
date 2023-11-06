@@ -23,7 +23,9 @@ def extract_thumbnail(data):
     try:
         metadata = {
             'title': data['title'],
+            'desc': data['desc'],
             'id': data['id'],
+            'user': data['user'],
             'time': data['time']
         }
         with tempfile.NamedTemporaryFile(delete=False, mode='wb') as temp_video:
